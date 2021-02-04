@@ -2,8 +2,8 @@
   <div class="loginItem">
     <!--登录注册tab-->
     <div class="tab">
-      <div v-for="(item,index) in data" :class="{active: index == currentIndex}"
-           @click="loginOrRegiShow(index)">{{item}}
+      <div v-for="(item,index) in data" :class="{active: index == currentIndex}" @click="loginOrRegiShow(index)">
+        {{item}}
       </div>
     </div>
     <!--注册内容组件-->
@@ -14,9 +14,12 @@
     <div v-else class="content">
       <regi-page/>
     </div>
+    <!--确定按钮-->
+    <div class="confirm">
+      确定
+    </div>
   </div>
 </template>
-
 <script>
   import loginPage from './LoginPage'
   import regiPage from './RegiPage'
@@ -41,7 +44,6 @@
     },
   }
 </script>
-
 <style scoped>
   .tab {
     padding: 1rem;
@@ -50,16 +52,29 @@
     justify-content: space-around;
     font-size: 1.6rem;
   }
-  .tab>div{
+
+  .tab > div {
     padding: 0 2rem 1rem;
   }
+
   .active {
     color: #ffa200;
     border-bottom: 1px solid #ffa200;
   }
-  .content{
+
+  .content {
     margin-top: 1rem;
     padding: 1rem;
     border: 1px solid #999;
+  }
+  .confirm{
+    margin-top: 1rem;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    background-color: #ffa200;
   }
 </style>
