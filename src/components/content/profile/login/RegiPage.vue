@@ -1,12 +1,12 @@
 <template>
-  <div id="profile">
-    profile
+  <div class="regiPage">
+    注册
   </div>
 </template>
 
 <script>
   export default {
-    name: "profile"
+    name: "regi-page"
   }
 </script>
 

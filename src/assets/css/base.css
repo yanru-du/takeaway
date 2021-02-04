@@ -45,6 +45,15 @@ table {
   border-spacing: 0;
 }
 
+input{
+  background:none;
+  outline:none;
+  border:1px solid #ccc;
+}
+/*input 获取焦点没有边框*/
+/*input:focus{*/
+  /*border:none;*/
+/*}*/
 .clearfix::after{
   content: '';
   display: block;
