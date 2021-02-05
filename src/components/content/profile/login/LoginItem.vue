@@ -6,18 +6,20 @@
         {{item}}
       </div>
     </div>
-    <!--注册内容组件-->
-    <div v-if="currentIndex == 0" class="content">
-      <login-page/>
+
+    <keep-alive>
+      <!--登录内容组件-->
+        <login-page  v-if="currentIndex == 0" class="content"/>
+      <!--注册内容组件-->
+        <regi-page type="regi" v-else class="content"/>
+    </keep-alive>
+
+    <!-- 重新输入  确定  按钮-->
+    <div class="end">
+      <div class="reset">重新输入</div>
+      <div class="confirm">确定</div>
     </div>
-    <!--登录内容组件-->
-    <div v-else class="content">
-      <regi-page/>
-    </div>
-    <!--确定按钮-->
-    <div class="confirm">
-      确定
-    </div>
+
   </div>
 </template>
 <script>
@@ -33,6 +35,7 @@
         currentIndex: 0,
       }
     },
+
     components: {
       loginPage,
       regiPage
@@ -67,14 +70,25 @@
     padding: 1rem;
     border: 1px solid #999;
   }
-  .confirm{
-    margin-top: 1rem;
+  .end{
+    margin-top: 2rem;
     width: 100%;
     height: 3rem;
     line-height: 3rem;
     text-align: center;
     border-radius: 8px;
     font-size: 1.6rem;
+  }
+  .end>div{
+    float: right;
+    text-align: center;
+    border-radius: 8px;
     background-color: #ffa200;
+    width: 46%;
+  }
+  .end .reset{
+    float: left;
+    background-color: darkkhaki;
+    color: #000;
   }
 </style>
