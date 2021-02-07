@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <keep-alive><router-view/></keep-alive>
+    <utils/>
     <Bar/>
+
   </div>
 </template>
 
 <script>
   import Bar from 'components/common/footerBar/Bar'
-  import loading from 'util/loading/Loading'
+  import utils from 'utils/Utils'
   export  default  {
     components:{
       Bar,
-      loading,
+      utils,
     }
   }
 </script>

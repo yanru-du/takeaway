@@ -12,7 +12,7 @@
     <!-- 重新输入  确定  按钮-->
     <div class="end">
       <div class="reset" @click="resetHandle">重新输入</div>
-      <div class="confirm">确定</div>
+      <div class="confirm" @click="confirmHandle">确定</div>
     </div>
   </div>
 
@@ -62,6 +62,19 @@
       resetHandle() {
         for (let k in this.login)
           this.$set(this.login, k, '')
+      },
+      // 确定，请求后台
+      confirmHandle(){
+        // this.$bus.$emit('confirm','','测试内容',()=>{
+        //   console.log("确定");
+        // },()=>{
+        //   console.log('取消')
+        // },{confirmText:'confirm',cancleText:'cancle'});
+
+
+        // this.$bus.$emit('alert','','测试内容', ()=>{
+        //   console.log(1);
+        // })
       },
     }
   }
