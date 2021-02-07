@@ -13,7 +13,7 @@ const sino = {
       arr.push(newObj)
     }
     if (callback)
-      callback(arr)
+      callback(arr);
     else
       return arr;
   },
@@ -25,7 +25,6 @@ const sino = {
       arr.forEach((item) => {
         obj[item.key] = item.value
       });
-      console.log(obj);
       if (callback)
         callback(obj);
       else
