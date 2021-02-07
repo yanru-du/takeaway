@@ -7,9 +7,11 @@
 
 <script>
   import Bar from 'components/common/footerBar/Bar'
+  import loading from 'util/loading/Loading'
   export  default  {
     components:{
-      Bar
+      Bar,
+      loading,
     }
   }
 </script>

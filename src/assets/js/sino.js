@@ -30,7 +30,8 @@ const sino = {
       else
         return obj;
     }
-  }
+  },
+
 
 };
 
