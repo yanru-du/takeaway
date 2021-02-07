@@ -5,8 +5,8 @@ export function axios(config) {
   // 1.创建axios的实例
   const service = Axios.create({
     baseURL: 'http://123.207.32.32:8000',
-    timeout: 10000
-  })
+    timeout: 10000,
+  });
 
   let  timeOutFlag = false;
   // 2.axios请求拦截
@@ -14,7 +14,7 @@ export function axios(config) {
     Vue.prototype.$bus.$emit('loading',true);
     return config
   }, err => {
-    console.log(err);
+    throw (err)
   });
 
   // 2.2.响应拦截
@@ -28,8 +28,8 @@ export function axios(config) {
       this.$bus.$emit('alert','','网络连接超时，请您检查网络',()=>{
         timeOutFlag = false;
       })
-
-    }
+    }else
+      throw err;
   });
 
   // 3.发送真正的网络请求
