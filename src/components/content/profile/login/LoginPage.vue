@@ -19,8 +19,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-
   export default {
     name: "login-page",
     data() {
@@ -31,33 +29,16 @@
           regexp: '',
         },
         isShowPsd:false,
-        state: this.$store.state,  // 状态管理state
       }
     },
     created() {
       // 页面刷新时将 vuex 中的信息保存到 sessionStorage 中
-      this.beforeunload();
+      this.beforeunload;
       // 每次DOM 加载完之后就会将之前的保存的信息重新赋值给 vuex,再重新赋值给login;
-      this.dataRender();
+      this.dataRender;
 
     },
     methods: {
-      // 页面刷新时将 vuex 中的信息保存到 sessionStorage 中
-      beforeunload() {
-        window.addEventListener('beforeunload', () => {
-          this.$sino.beforeunload(this.login, res => {
-            this.state.login = res;
-            sessionStorage.setItem('loginData', JSON.stringify(this.state.login))
-          });
-        })
-      },
-      // 每次DOM 加载完之后就会将之前的保存的信息重新赋值给 vuex,再重新赋值给login;
-      dataRender() {
-        this.$sino.renderDataLoaded(sessionStorage.getItem('loginData'), res => {
-          this.login = res;
-          this.$store.replaceState(Object.assign({}, this.state.login), JSON.parse(sessionStorage.getItem('loginData')));
-        })
-      },
       // 重新输入,表单内容清空
       resetHandle() {
         for (let k in this.login)
@@ -65,18 +46,26 @@
       },
       // 确定，请求后台
       confirmHandle(){
-        // this.$bus.$emit('confirm','','测试内容',()=>{
-        //   console.log("确定");
-        // },()=>{
-        //   console.log('取消')
-        // },{confirmText:'confirm',cancleText:'cancle'});
 
-
-        // this.$bus.$emit('alert','','测试内容', ()=>{
-        //   console.log(1);
-        // })
       },
-    }
+    },
+    computed:{
+      // 页面刷新时将 vuex 中的信息保存到 sessionStorage 中
+      beforeunload() {
+        window.addEventListener('beforeunload', () => {
+          this.$sino.beforeunload(this.login, res => {
+            this.$store.commit('LOGIN_DATA',res);
+          });
+        })
+      },
+      // 每次DOM 加载完之后就会将之前的保存的信息重新赋值给 vuex,再重新赋值给login;
+      dataRender() {
+        this.$sino.renderDataLoaded(sessionStorage.getItem('loginData'), res => {
+          this.login = res;
+          this.$store.commit('LOGIN_DATA',res);
+        })
+      },
+    },
   }
 </script>
 
