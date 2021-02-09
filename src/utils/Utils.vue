@@ -7,7 +7,7 @@
 
 <script>
   import loading from './loading/Loading'
-  import alert from './messageBlock/Alert'
+  import alert from './messageBox/Alert'
 
   export default {
     name: "utils",
