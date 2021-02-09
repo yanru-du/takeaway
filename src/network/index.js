@@ -22,7 +22,7 @@ service.interceptors.response.use(res => {
   return res.data
 }, error => {
   // 请求超时处理
-  if (err.message.indexOf('timeout') !== '-1' && !timeOutFlag) {
+  if (error.message.indexOf('timeout') !== '-1' && !timeOutFlag) {
     timeOutFlag = true;
     this.$bus.$emit('alert', '', '网络连接超时，请您检查网络', () => {
       timeOutFlag = false;
